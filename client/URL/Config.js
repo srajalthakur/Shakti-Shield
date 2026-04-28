@@ -1,0 +1,33 @@
+const API = import.meta.env.VITE_API_BASE ?? "";
+
+export const Config = {
+  baseUrl: `${API}/api/user`,
+  SignUPUrl: `${API}/api/user/signup`,
+  LOGINUrl: `${API}/api/user/login`,
+  GoogleClientId: import.meta.env.VITE_GOOGLE_CLIENT_ID ?? "1008582050503-q1562urhfeqhqa1sh73gmqrm0br8pt82.apps.googleusercontent.com",
+  GoogleSignUpUrl: `${API}/api/user/googleLogin`,
+  LogoutUrl: `${API}/api/user/logout`,
+  ContactUrl: `${API}/api/contacts/addcontact`,
+  GETDATAUrl: `${API}/api/user/get-data`,
+  CHECKAuthUrl: `${API}/api/user/auth-check`,
+  DELETECONTACTUrl: `${API}/api/contacts/delete-contact`,
+  EMERGENCYUrl: `${API}/api/contacts/emergency`,
+  ADDREVIEWUrl: `${API}/api/reviews/addreview`,
+  GETREVIEWSUrl: `${API}/api/reviews/allreviews`,
+  ADDPROFILEPHOTO: `${API}/api/profile/add-photo`,
+  UPDATEUSERNAME: `${API}/api/profile/update-name`,
+  UPDATEEMAIL: `${API}/api/profile/update-email`,
+  UPDATEPASSWORD: `${API}/api/profile/update-password`,
+  ADDSOSLOGUrl: `${API}/api/soslogs/add`,
+  GETSOSLOGSUrl: `${API}/api/soslogs/get`,
+  DELETEREVIEWUrl: `${API}/api/reviews/delete`,
+  UPDATEUSERNAMEUrl: `${API}/api/profile/update-name`,
+  UPDATEEMAILUrl: `${API}/api/profile/update-email`,
+  UPDATEPASSWORDUrl: `${API}/api/profile/update-password`,
+  UPDATEPHOTOUrl: `${API}/api/profile/add-photo`,
+  ADDSOSLOGUrl: `${API}/api/soslogs/add`,
+  GETSOSLOGSUrl: `${API}/api/soslogs/get`,
+  DELETEREVIEWUrl: `${API}/api/reviews/delete`,
+  ADMIN_STATS: `${API}/api/admin/stats`,
+  ADMIN_USERS: `${API}/api/admin/users`
+};
