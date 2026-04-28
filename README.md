@@ -93,3 +93,4 @@ Push notifications for immediate alerts even if app is minimized.
 
 The Women's Safety Web App is a purposeful, tech-driven initiative that blends real-time location tracking, secure communications, and community-driven insights to foster a safer environment. With an intuitive interface and scalable design, it represents a modern step toward leveraging technology for public welfare and safety.  
 # Shakti-Shield
+
