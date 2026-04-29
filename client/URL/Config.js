@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+const API = import.meta.env.VITE_API_BASE || (typeof window !== 'undefined' && window.location.hostname !== 'localhost' ? 'https://shakti-shield-7haq.onrender.com' : 'http://localhost:5000');
 
 export const Config = {
   baseUrl: `${API}/api/user`,
