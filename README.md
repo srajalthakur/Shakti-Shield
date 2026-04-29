@@ -231,10 +231,9 @@ Shakti--Shield/
 
 | Home | SOS Active | Map |
 |---|---|---|
-| <img width="1919" height="1049" alt="image" src="https://github.com/user-attachments/assets/2ffc5b4e-1e9d-4823-b437-20ddb0b9fa6a" />
- | <img width="1919" height="1050" alt="image" src="https://github.com/user-attachments/assets/a7f75a01-d5cc-41b3-a2d4-943e0435d545" />
- | <img width="1919" height="1049" alt="image" src="https://github.com/user-attachments/assets/76385b62-b8f2-4d11-a182-d020893341a7" />
- |
+| <img width="1919" height="1049" alt="image" src="https://github.com/user-attachments/assets/2ffc5b4e-1e9d-4823-b437-20ddb0b9fa6a" />|
+| <img width="1919" height="1050" alt="image" src="https://github.com/user-attachments/assets/a7f75a01-d5cc-41b3-a2d4-943e0435d545" />|
+| <img width="1919" height="1049" alt="image" src="https://github.com/user-attachments/assets/76385b62-b8f2-4d11-a182-d020893341a7" />|
 
 | Profile | Admin Dashboard | Reviews |
 |---|---|---|
