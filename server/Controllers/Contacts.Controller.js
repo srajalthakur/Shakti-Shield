@@ -4,7 +4,8 @@ import fs from "fs";
 import getPublicIdFromUrl from "../Utils/getPublicIdFromUrl.Utils.js";
 import { v2 as cloudinary } from "cloudinary";
 import axios from "axios";
-import fast2sms from "fast-two-sms";
+import twilio from 'twilio';
+//import fast2sms from "fast-two-sms";
 
 /**
  * Add a new contact for a user
@@ -152,23 +153,21 @@ const SendEmergencyInfo = async (req, res) => {
     const results = await Promise.all(
       contactNumbers.map(async (number) => {
         try {
-          const response = await axios.get(
-            'https://www.fast2sms.com/dev/bulkV2',
-            {
-              params: {
-                authorization: process.env.FAST2SMS_API_KEY,
-                message: messageText,
-                language: 'english',
-                route: 'q',
-                numbers: number.replace(/\D/g, '')
-              }
-            }
+          const client = twilio(
+            process.env.TWILIO_ACCOUNT_SID,
+            process.env.TWILIO_AUTH_TOKEN
           );
+
+          const message = await client.messages.create({
+            body: messageText,
+            from: process.env.TWILIO_PHONE_NUMBER,
+            to: `+91${number.replace(/\D/g, '')}`
+          });
 
           return {
             number,
             status: 'success',
-            messageId: response?.data?.request_id
+            messageId: message.sid
           };
         } catch (err) {
           console.error(`Failed to send to ${number}:`, err.message);

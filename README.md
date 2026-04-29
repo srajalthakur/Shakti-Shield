@@ -1,96 +1,243 @@
-Overview:
-The Women's Safety Web App is a full-stack platform designed to provide real-time protection and support to individuals during emergency situations. Built with a mission to enhance safety, the application empowers users to send SOS alerts, live locations, manage emergency contacts, and review safe or unsafe areas based on personal experiences.
+<div align="center">
+🛡️ Shakti Shield
+Your Personal Safety Companion
+Show Image
+Show Image
+Show Image
+Show Image
+Show Image
+<br/>
 
-📚 Key Features
+One tap. Your location. Your people. Instantly.
+Shakti Shield is a full-stack women's safety platform that sends real-time SOS alerts with live GPS location to emergency contacts — in under 3 seconds.
 
-1. 🚨 Emergency SOS Alerts
-Users can quickly trigger an SOS button to send real-time alerts.
+<br/>
+Show Image
+Show Image
+Show Image
+</div>
 
-Instantly shares the current location with registered emergency contacts.
+✨ Features
+🚨 Emergency SOS
 
-Ensures immediate help is notified in dangerous situations.
+One-tap SHAKTI button sends instant SMS alerts
+Shares live GPS coordinates via Google Maps link
+Works even without internet using IP-based location fallback
+Confirmation dialog shows contact count, GPS status, and readiness
+SOS activity log records every alert with timestamp and location
 
-2. 📍 Location Tracking
-Integrated with Leaflet.js to provide live map tracking.
+📍 Live Location Map
 
-Users can monitor their real-time location within the application.
+Real-time GPS tracking with Leaflet.js
+Satellite and standard map views
+Re-center button snaps map to your current position
+Accuracy indicator shows GPS precision in meters
 
-3. 🔒 User Authentication
-Secure authentication system using JWT Tokens.
+👥 Emergency Contacts
 
-Support for Google Sign-In via Clerk/Auth0 integration.
+Add up to 10 trusted contacts with photos
+Cloudinary-powered photo upload
+One-tap delete with Cloudinary cleanup
+Contacts displayed with live status indicators
 
-Ensures only verified users can access sensitive features.
+🔐 Authentication
 
-4. 📂 Cloud Storage for Images
-Users can upload profile photos and emergency contact images using Multer and Cloudinary.
+Email/password signup & login with JWT
+Google OAuth 2.0 one-click login
+Secure HTTP-only cookies
+Protected routes for all private pages
 
-Cloud storage ensures images are safely managed and accessible from anywhere.
+📝 Safety Reviews
 
-5. 👥 Emergency Contacts Management
-Users can add, edit, or delete trusted contacts.
+Community-driven location safety reviews
+1–5 star rating system
+Filter by Positive / Critical reviews
+Search by location, title, or username
+Users can delete their own reviews
 
-Contacts are stored securely and linked to the user's account.
+👤 Profile Management
 
-A maximum limit (e.g., 3 contacts) ensures simplicity during emergencies.
+Profile photo upload via Cloudinary
+Edit username and email in-place
+Real SOS alert count from database
+Live contact count display
+Google accounts show "Managed by Google" for password
 
-6. 📝 Review and Rate Locations
-Community-driven feature to share reviews about the safety of public places.
+📊 Admin Dashboard
 
-Helps others identify safe zones and potential risk areas based on user feedback.
+Overview with total users, SOS alerts, Google users
+Full user management with join date and contact count
+All SOS logs with clickable Google Maps links
+Status badges (success/failed) for each alert
+Admin-only access via isAdmin flag
 
-Locations and reviews are stored securely in the database.
+📈 SOS Activity Log
 
-7. 📧 Real-time Notifications
-Users and emergency contacts receive real-time notifications during critical activities like sending an SOS or updating location.
+Personal history of all SOS alerts triggered
+Shows alert number, timestamp, GPS coordinates, contacts alerted
+Success/failure status for each alert
 
-⚙️ How It Works (User Flow)
 
-Sign Up / Login:
-Users authenticate using email/password or Google account.
+🛠️ Tech Stack
+LayerTechnologyFrontendReact 18, Vite, TailwindCSS, Framer MotionBackendNode.js, Express.js, ES ModulesDatabaseMongoDB Atlas, Mongoose ODMAuthJWT, Google OAuth 2.0, Passport.jsSMSTwilio APIMediaCloudinary, MulterMapsLeaflet.js, React-LeafletFontsSyne (display), DM Sans (body)
 
-Set Up Profile:
-Users upload their profile photo and add emergency contacts.
+🚀 Getting Started
+Prerequisites
 
-Home Dashboard:
-A visible SOS Button is present for quick emergency response.
+Node.js v18+
+MongoDB Atlas account
+Twilio account
+Cloudinary account
+Google Cloud Console project
 
-Send SOS:
-On clicking, location and alert messages are sent to emergency contacts.
+Installation
+bash# Clone the repository
+git clone https://github.com/your-username/Shakti--Shield.git
+cd Shakti--Shield
 
-Track Location:
-The map updates the user's live position using geolocation APIs.
+# Install server dependencies
+cd server
+npm install
 
-Review Areas:
-After visiting a location, users can leave reviews marking it safe/unsafe.
+# Install client dependencies
+cd ../client
+npm install
+Environment Variables
+Create server/.env:
+envPORT=5000
+NODE_ENV=development
 
-Logout or Manage Settings:
-Users can securely log out, update their profile, or manage their contacts.
+# MongoDB
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/shakti-shield
 
-📈 Impact and Importance
+# JWT
+JWT_SECRET=your-super-secret-jwt-key
 
-Promotes women’s empowerment by giving them direct tools for their safety.
+# Google OAuth
+GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
 
-Builds a community-driven safety network through review sharing.
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_SECRET=your-api-secret
 
-Supports faster emergency response by integrating real-time location services.
+# Twilio
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+TWILIO_AUTH_TOKEN=your-auth-token
+TWILIO_PHONE_NUMBER=+1xxxxxxxxxx
+Create client/.env:
+envVITE_GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
+Running the App
+bash# Start backend (from /server)
+npm run dev
 
-Creates awareness and helps authorities identify high-risk areas.
+# Start frontend (from /client)
+npm run dev
+Frontend: http://localhost:5173
+Backend: http://localhost:5000
 
-Addresses social responsibility through tech-driven solutions.
+📁 Project Structure
+Shakti--Shield/
+├── client/                          # React frontend (Vite)
+│   ├── src/
+│   │   ├── Components/
+│   │   │   ├── Home/
+│   │   │   │   ├── AfterLogin.jsx   # Main home with SOS button
+│   │   │   │   ├── BottomNav.jsx    # Mobile navigation
+│   │   │   │   └── Loader.jsx
+│   │   │   ├── AdminDashboard.jsx   # Admin panel
+│   │   │   ├── Login.jsx            # Auth - login
+│   │   │   ├── Signup.jsx           # Auth - register
+│   │   │   ├── Map.jsx              # Live location map
+│   │   │   ├── Profile.jsx          # User profile & settings
+│   │   │   ├── Progress.jsx         # SOS activity log
+│   │   │   ├── Reviews.jsx          # Community reviews
+│   │   │   └── ShaktiButton.jsx     # Dedicated SOS page
+│   │   └── Context/
+│   │       └── AuthContext.jsx
+│   └── URL/
+│       ├── Config.js                # API endpoints
+│       └── CustomApi.js             # Axios instance
+│
+└── server/                          # Node.js + Express backend
+    ├── Controllers/
+    │   ├── Admin.Controller.js
+    │   ├── Contacts.Controller.js   # SOS + contacts
+    │   ├── Profile.Controller.js
+    │   ├── Review.Controller.js
+    │   ├── SOSLog.Controller.js
+    │   └── User.Controller.js
+    ├── Models/
+    │   ├── User.Model.js            # User + contacts + reviews schema
+    │   └── SOSLog.Model.js          # SOS alert logs
+    ├── Routes/
+    │   ├── Admin.Routes.js
+    │   ├── Auth.js
+    │   ├── Contacts.Routes.js
+    │   ├── Profile.Routes.js
+    │   ├── Review.Routes.js
+    │   ├── SOSLog.Routes.js
+    │   └── User.Routes.js
+    ├── Middlewares/
+    │   ├── admin.Middleware.js
+    │   ├── auth.Middleware.js
+    │   └── Multer.js
+    ├── Utils/
+    │   ├── Cloudinary.Utils.js
+    │   └── getPublicIdFromUrl.Utils.js
+    └── config/
+        ├── db.js
+        └── passport.js
 
-🚀 Future Enhancements (Optional Ideas)
+📱 Screenshots
+HomeSOS ActiveMapDark premium UI with SOS buttonConfirmation dialog with GPS statusLive satellite/street view
+ProfileAdmin DashboardReviewsStats, settings, navigationUser management & SOS logsCommunity safety reviews
 
-Integration of emergency calling directly from the web app.
+🔐 Admin Access
+To grant admin access to a user:
 
-AI-based threat detection by analyzing unsafe locations' patterns.
+Go to MongoDB Atlas → Collections → users
+Find the user document
+Add field: "isAdmin": true
+Visit http://your-domain/admin
 
-Offline SOS mode (store alert and send once internet reconnects).
 
-Push notifications for immediate alerts even if app is minimized.
+⚡ API Endpoints
+Auth
+MethodEndpointDescriptionPOST/api/user/signupRegister new userPOST/api/user/loginLogin with email/passwordPOST/api/user/googleLoginGoogle OAuth loginGET/api/user/auth-checkVerify sessionPOST/api/user/logoutLogout
+Contacts & SOS
+MethodEndpointDescriptionPOST/api/contacts/addcontactAdd emergency contactDELETE/api/contacts/delete-contactRemove contactPOST/api/contacts/emergencySend SOS alert via Twilio
+SOS Logs
+MethodEndpointDescriptionPOST/api/soslogs/addSave SOS logGET/api/soslogs/getGet user's SOS history
+Admin
+MethodEndpointDescriptionGET/api/admin/statsDashboard stats + recent SOSGET/api/admin/usersAll users list
 
-📜 Conclusion
+🌟 Impact
 
-The Women's Safety Web App is a purposeful, tech-driven initiative that blends real-time location tracking, secure communications, and community-driven insights to foster a safer environment. With an intuitive interface and scalable design, it represents a modern step toward leveraging technology for public welfare and safety.  
-# Shakti-Shield
+🛡️ Real protection — SMS alerts reach contacts in under 3 seconds
+📍 Precise location — GPS coordinates shared as a Google Maps link
+👥 Community safety — Reviews help others identify safe/unsafe areas
+🔒 Privacy-first — JWT auth, encrypted passwords, secure cookies
+📊 Transparent — Full audit trail of every SOS alert in the admin dashboard
 
+
+🚧 Future Roadmap
+
+ 🌐 Deploy to Vercel + Render (online hosting)
+ 📱 Progressive Web App (installable on phones)
+ 📞 Emergency calling directly from app
+ 🤖 AI threat detection from review patterns
+ 📵 Offline SOS mode (queue and send when reconnected)
+ 🔔 Push notifications for SOS acknowledgments
+ 🗺️ Heatmap of unsafe areas from community reviews
+
+
+👨‍💻 Author
+Srajal Thakur
+NIET, Noida Institute of Engineering and Technology
+B.Tech CSE — 2025
+
+<div align="center">
+Built with 🛡️ for personal safety
+Shakti Shield — Stay Safe. Stay Connected.
+</div>
