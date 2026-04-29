@@ -60,7 +60,7 @@ const _dirname = path.resolve();
 
 // ✅ CORS CONFIG
 const allowedOrigins = process.env.NODE_ENV === "production"
-  ? ["https://shakti-shield.vercel.app"]
+  ? ["https://shakti-shield-sand.vercel.app"]
   : ["http://localhost:5173", "http://127.0.0.1:5173"];
 
 app.use(cors({
