@@ -31,8 +31,8 @@ const AdminDashboard = () => {
       try {
         setDataLoading(true);
         const [statsRes, usersRes] = await Promise.all([
-            api.get('http://localhost:5000/api/admin/stats'),
-            api.get('http://localhost:5000/api/admin/users')
+            api.get(Config.ADMIN_STATS),
+            api.get(Config.ADMIN_USERS)
         ]);
         setStats(statsRes.data);
         setUsers(usersRes.data.users);
@@ -56,7 +56,7 @@ const AdminDashboard = () => {
     }
 
     try {
-      await api.delete('http://localhost:5000/api/admin/delete-user', {
+      await api.delete(`${Config.baseUrl.replace('/api/user', '/api/admin/delete-user')}`, {
         data: { userId }
       });
       setUsers(users.filter(u => u._id !== userId));
