@@ -231,11 +231,17 @@ Shakti--Shield/
 
 | Home | SOS Active | Map |
 |---|---|---|
-| Dark premium UI with SOS button | Confirmation dialog with GPS status | Live satellite/street view |
+| <img width="1919" height="1049" alt="image" src="https://github.com/user-attachments/assets/2ffc5b4e-1e9d-4823-b437-20ddb0b9fa6a" />
+ | <img width="1919" height="1050" alt="image" src="https://github.com/user-attachments/assets/a7f75a01-d5cc-41b3-a2d4-943e0435d545" />
+ | <img width="1919" height="1049" alt="image" src="https://github.com/user-attachments/assets/76385b62-b8f2-4d11-a182-d020893341a7" />
+ |
 
 | Profile | Admin Dashboard | Reviews |
 |---|---|---|
-| Stats, settings, navigation | User management & SOS logs | Community safety reviews |
+| <img width="1919" height="1047" alt="Screenshot 2026-04-29 153358" src="https://github.com/user-attachments/assets/694becb2-bea0-45db-b723-ab3da902628b" />
+ | <img width="1919" height="1051" alt="Screenshot 2026-04-29 153425" src="https://github.com/user-attachments/assets/43197858-8050-4201-b78a-6eff0baf8bd2" />
+ | <img width="1919" height="1047" alt="Screenshot 2026-04-29 153308" src="https://github.com/user-attachments/assets/40d7ce6f-2e4e-4ddc-8cb6-f39d1f9d86bc" />
+ |
 
 ---
 
@@ -306,7 +312,7 @@ To grant admin access to a user:
 
 ## 👨‍💻 Author
 
-**Srajal Thakur**
+**Srajal Singh**
 NIET, Noida Institute of Engineering and Technology
 B.Tech CSE — 2025
 
