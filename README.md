@@ -9,6 +9,8 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
 [![Twilio](https://img.shields.io/badge/Twilio-SMS-F22F46?style=for-the-badge&logo=twilio&logoColor=white)](https://twilio.com)
 [![Cloudinary](https://img.shields.io/badge/Cloudinary-Media-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com)
+[![Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://shakti-shield-sand.vercel.app)
+[![Render](https://img.shields.io/badge/API-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://shakti-shield-7haq.onrender.com)
 
 <br/>
 
@@ -17,7 +19,7 @@
 
 <br/>
 
-![Hero](https://img.shields.io/badge/Status-Live%20%26%20Working-22c55e?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Live%20%26%20Deployed-22c55e?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-a855f7?style=for-the-badge)
 ![Made with Love](https://img.shields.io/badge/Made%20with-❤️-ef4444?style=for-the-badge)
 
@@ -25,31 +27,43 @@
 
 ---
 
+## 🌐 Live Demo
+
+| | Link |
+|---|---|
+| 🚀 **Frontend (Live App)** | [shakti-shield-sand.vercel.app](https://shakti-shield-sand.vercel.app) |
+| ⚙️ **Backend API** | [shakti-shield-7haq.onrender.com](https://shakti-shield-7haq.onrender.com) |
+| 🛡️ **Admin Dashboard** | [shakti-shield-sand.vercel.app/admin](https://shakti-shield-sand.vercel.app/admin) *(requires admin access)* |
+
+> **Note:** The backend is hosted on Render's free tier. If the API is slow on first request, wait ~30–60 seconds for the server to wake up from idle. Subsequent requests will be fast.
+
+---
+
 ## ✨ Features
 
 ### 🚨 Emergency SOS
-- One-tap SHAKTI button sends instant SMS alerts
-- Shares live GPS coordinates via Google Maps link
-- Works even without internet using IP-based location fallback
+- One-tap SHAKTI button sends instant SMS alerts via Twilio
+- Shares live GPS coordinates as a clickable Google Maps link
+- Works even without GPS using IP-based location fallback
 - Confirmation dialog shows contact count, GPS status, and readiness
 - SOS activity log records every alert with timestamp and location
 
 ### 📍 Live Location Map
-- Real-time GPS tracking with Leaflet.js
-- Satellite and standard map views
+- Real-time GPS tracking with Leaflet.js + OpenStreetMap
+- Satellite and standard street map views
 - Re-center button snaps map to your current position
 - Accuracy indicator shows GPS precision in meters
 
 ### 👥 Emergency Contacts
 - Add up to 10 trusted contacts with photos
 - Cloudinary-powered photo upload
-- One-tap delete with Cloudinary cleanup
+- One-tap delete with automatic Cloudinary cleanup
 - Contacts displayed with live status indicators
 
 ### 🔐 Authentication
 - Email/password signup & login with JWT
 - Google OAuth 2.0 one-click login
-- Secure HTTP-only cookies
+- Secure HTTP-only cookies (XSS-safe)
 - Protected routes for all private pages
 
 ### 📝 Safety Reviews
@@ -66,17 +80,29 @@
 - Live contact count display
 - Google accounts show "Managed by Google" for password
 
-### 📊 Admin Dashboard
+### 🛡️ Admin Dashboard
 - Overview with total users, SOS alerts, Google users
 - Full user management with join date and contact count
 - All SOS logs with clickable Google Maps links
 - Status badges (success/failed) for each alert
-- Admin-only access via `isAdmin` flag
+- Admin-only access via `isAdmin` flag in MongoDB
 
 ### 📈 SOS Activity Log
 - Personal history of all SOS alerts triggered
 - Shows alert number, timestamp, GPS coordinates, contacts alerted
 - Success/failure status for each alert
+
+---
+
+## 📱 Screenshots
+
+| Home | SOS Active | Map |
+|---|---|---|
+| <img width="600" src="https://github.com/user-attachments/assets/2ffc5b4e-1e9d-4823-b437-20ddb0b9fa6a" /> | <img width="600" src="https://github.com/user-attachments/assets/a7f75a01-d5cc-41b3-a2d4-943e0435d545" /> | <img width="600" src="https://github.com/user-attachments/assets/76385b62-b8f2-4d11-a182-d020893341a7" /> |
+
+| Profile | Admin Dashboard | Reviews |
+|---|---|---|
+| <img width="600" src="https://github.com/user-attachments/assets/694becb2-bea0-45db-b723-ab3da902628b" /> | <img width="600" src="https://github.com/user-attachments/assets/43197858-8050-4201-b78a-6eff0baf8bd2" /> | <img width="600" src="https://github.com/user-attachments/assets/40d7ce6f-2e4e-4ddc-8cb6-f39d1f9d86bc" /> |
 
 ---
 
@@ -87,10 +113,12 @@
 | **Frontend** | React 18, Vite, TailwindCSS, Framer Motion |
 | **Backend** | Node.js, Express.js, ES Modules |
 | **Database** | MongoDB Atlas, Mongoose ODM |
-| **Auth** | JWT, Google OAuth 2.0, Passport.js |
-| **SMS** | Twilio API |
+| **Auth** | JWT (HTTP-only cookies), Google OAuth 2.0, Passport.js |
+| **SMS** | Twilio Programmable Messaging API |
 | **Media** | Cloudinary, Multer |
-| **Maps** | Leaflet.js, React-Leaflet |
+| **Maps** | Leaflet.js, OpenStreetMap |
+| **Frontend Hosting** | Vercel (Global CDN) |
+| **Backend Hosting** | Render (Cloud Container) |
 | **Fonts** | Syne (display), DM Sans (body) |
 
 ---
@@ -99,17 +127,17 @@
 
 ### Prerequisites
 - Node.js v18+
-- MongoDB Atlas account
-- Twilio account
-- Cloudinary account
-- Google Cloud Console project
+- MongoDB Atlas account (free M0 tier)
+- Twilio account (trial credits)
+- Cloudinary account (free tier)
+- Google Cloud Console project (OAuth 2.0)
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/Shakti--Shield.git
-cd Shakti--Shield
+git clone https://github.com/srajalthakur/Shakti-Shield.git
+cd Shakti-Shield
 
 # Install server dependencies
 cd server
@@ -136,6 +164,7 @@ JWT_SECRET=your-super-secret-jwt-key
 
 # Google OAuth
 GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your-google-client-secret
 
 # Cloudinary
 CLOUDINARY_CLOUD_NAME=your-cloud-name
@@ -151,10 +180,13 @@ TWILIO_PHONE_NUMBER=+1xxxxxxxxxx
 Create `client/.env`:
 
 ```env
+VITE_API_BASE=
 VITE_GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
 ```
 
-### Running the App
+> **Tip:** Leave `VITE_API_BASE` empty for local development — the Vite proxy handles routing to `localhost:5000` automatically.
+
+### Running Locally
 
 ```bash
 # Start backend (from /server)
@@ -164,16 +196,41 @@ npm run dev
 npm run dev
 ```
 
-Frontend: `http://localhost:5173`
+Frontend: `http://localhost:5173`  
 Backend: `http://localhost:5000`
+
+---
+
+## ☁️ Deployment
+
+### Frontend → Vercel
+1. Go to [vercel.com](https://vercel.com) → New Project → Import your GitHub repo
+2. Set **Root Directory** to `client`
+3. Add environment variable: `VITE_API_BASE` = `https://your-render-url.onrender.com`
+4. Click Deploy
+
+### Backend → Render
+1. Go to [render.com](https://render.com) → New Web Service → Connect GitHub repo
+2. Set **Root Directory** to `server`
+3. **Build Command:** `npm install`
+4. **Start Command:** `node server.js`
+5. Add all environment variables from `server/.env` in the Render dashboard
+6. Click Deploy
+
+### Database → MongoDB Atlas
+1. Go to [cloud.mongodb.com](https://cloud.mongodb.com) → Network Access
+2. Add IP `0.0.0.0/0` to allow Render's dynamic IPs
+3. Copy your connection string into the `MONGO_URI` env variable
 
 ---
 
 ## 📁 Project Structure
 
 ```
-Shakti--Shield/
+Shakti-Shield/
 ├── client/                          # React frontend (Vite)
+│   ├── public/
+│   │   └── vercel.json              # SPA routing fix for Vercel
 │   ├── src/
 │   │   ├── Components/
 │   │   │   ├── Home/
@@ -187,12 +244,15 @@ Shakti--Shield/
 │   │   │   ├── Profile.jsx          # User profile & settings
 │   │   │   ├── Progress.jsx         # SOS activity log
 │   │   │   ├── Reviews.jsx          # Community reviews
+│   │   │   ├── Settings.jsx         # Account settings
 │   │   │   └── ShaktiButton.jsx     # Dedicated SOS page
-│   │   └── Context/
-│   │       └── AuthContext.jsx
-│   └── URL/
-│       ├── Config.js                # API endpoints
-│       └── CustomApi.js             # Axios instance
+│   │   ├── Context/
+│   │   │   ├── AuthContext.jsx
+│   │   │   └── UserContextProvider.jsx
+│   │   └── URL/
+│   │       ├── Config.js            # API endpoints (auto-detects local vs prod)
+│   │       └── CustomApi.js         # Axios instance with withCredentials
+│   └── vercel.json                  # Rewrites all paths → index.html (SPA fix)
 │
 └── server/                          # Node.js + Express backend
     ├── Controllers/
@@ -207,35 +267,22 @@ Shakti--Shield/
     │   └── SOSLog.Model.js          # SOS alert logs
     ├── Routes/
     │   ├── Admin.Routes.js
-    │   ├── Auth.js
     │   ├── Contacts.Routes.js
     │   ├── Profile.Routes.js
     │   ├── Review.Routes.js
     │   ├── SOSLog.Routes.js
     │   └── User.Routes.js
     ├── Middlewares/
-    │   ├── admin.Middleware.js
-    │   ├── auth.Middleware.js
-    │   └── Multer.js
+    │   ├── admin.Middleware.js      # isAdmin guard
+    │   ├── auth.Middleware.js       # JWT verification
+    │   └── Multer.js               # File upload handling
     ├── Utils/
     │   ├── Cloudinary.Utils.js
     │   └── getPublicIdFromUrl.Utils.js
     └── config/
-        ├── db.js
-        └── passport.js
+        ├── db.js                   # MongoDB Atlas connection
+        └── passport.js             # Google OAuth strategy
 ```
-
----
-
-## 📱 Screenshots
-
-| Home | SOS Active | Map |
-|---|---|---|
-| <img width="600" src="https://github.com/user-attachments/assets/2ffc5b4e-1e9d-4823-b437-20ddb0b9fa6a" /> | <img width="600" src="https://github.com/user-attachments/assets/a7f75a01-d5cc-41b3-a2d4-943e0435d545" /> | <img width="600" src="https://github.com/user-attachments/assets/76385b62-b8f2-4d11-a182-d020893341a7" /> |
-
-| Profile | Admin Dashboard | Reviews |
-|---|---|---|
-| <img width="600" src="https://github.com/user-attachments/assets/694becb2-bea0-45db-b723-ab3da902628b" /> | <img width="600" src="https://github.com/user-attachments/assets/43197858-8050-4201-b78a-6eff0baf8bd2" /> | <img width="600" src="https://github.com/user-attachments/assets/40d7ce6f-2e4e-4ddc-8cb6-f39d1f9d86bc" /> |
 
 ---
 
@@ -244,9 +291,10 @@ Shakti--Shield/
 To grant admin access to a user:
 
 1. Go to **MongoDB Atlas** → Collections → `users`
-2. Find the user document
-3. Add field: `"isAdmin": true`
-4. Visit `http://your-domain/admin`
+2. Find the user document by email
+3. Edit the document and set: `"isAdmin": true`
+4. Log out and log back in
+5. Visit [shakti-shield-sand.vercel.app/admin](https://shakti-shield-sand.vercel.app/admin)
 
 ---
 
@@ -260,6 +308,7 @@ To grant admin access to a user:
 | POST | `/api/user/googleLogin` | Google OAuth login |
 | GET | `/api/user/auth-check` | Verify session |
 | POST | `/api/user/logout` | Logout |
+| GET | `/api/user/get-data` | Get current user data |
 
 ### Contacts & SOS
 | Method | Endpoint | Description |
@@ -268,17 +317,33 @@ To grant admin access to a user:
 | DELETE | `/api/contacts/delete-contact` | Remove contact |
 | POST | `/api/contacts/emergency` | Send SOS alert via Twilio |
 
+### Reviews
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/api/reviews/addreview` | Submit safety review |
+| GET | `/api/reviews/allreviews` | Get all community reviews |
+| DELETE | `/api/reviews/delete` | Delete own review |
+
+### Profile
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/api/profile/update-name` | Update username |
+| POST | `/api/profile/update-email` | Update email |
+| POST | `/api/profile/update-password` | Update password |
+| POST | `/api/profile/add-photo` | Upload profile photo |
+
 ### SOS Logs
 | Method | Endpoint | Description |
 |---|---|---|
-| POST | `/api/soslogs/add` | Save SOS log |
+| POST | `/api/soslogs/add` | Save SOS log entry |
 | GET | `/api/soslogs/get` | Get user's SOS history |
 
-### Admin
+### Admin *(isAdmin required)*
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/api/admin/stats` | Dashboard stats + recent SOS |
 | GET | `/api/admin/users` | All users list |
+| DELETE | `/api/admin/delete-user` | Delete a user |
 
 ---
 
@@ -287,26 +352,29 @@ To grant admin access to a user:
 - 🛡️ **Real protection** — SMS alerts reach contacts in under 3 seconds
 - 📍 **Precise location** — GPS coordinates shared as a Google Maps link
 - 👥 **Community safety** — Reviews help others identify safe/unsafe areas
-- 🔒 **Privacy-first** — JWT auth, encrypted passwords, secure cookies
+- 🔒 **Privacy-first** — JWT auth, bcrypt passwords, HTTP-only secure cookies
 - 📊 **Transparent** — Full audit trail of every SOS alert in the admin dashboard
+- 🌐 **Zero barrier** — No install, no hardware, no payment required
 
 ---
 
 ## 🚧 Future Roadmap
 
-- [ ] 🌐 Deploy to Vercel + Render (online hosting)
-- [ ] 📱 Progressive Web App (installable on phones)
-- [ ] 📞 Emergency calling directly from app
-- [ ] 🤖 AI threat detection from review patterns
+- [ ] 📱 Progressive Web App (PWA) — installable on phones from browser
+- [ ] 📡 Real-time location sharing via WebSockets during SOS
+- [ ] 📞 Emergency calling directly from the app
+- [ ] 🤖 AI threat detection from accelerometer + review patterns
 - [ ] 📵 Offline SOS mode (queue and send when reconnected)
 - [ ] 🔔 Push notifications for SOS acknowledgments
 - [ ] 🗺️ Heatmap of unsafe areas from community reviews
+- [ ] 🌍 Multi-language support (Hindi, Tamil, Bengali, Marathi)
+- [ ] 💬 WhatsApp bot integration for SOS alerts
 
 ---
 
 ## 👨‍💻 Author
 
-**Srajal Singh**
+Srajal Thakur
 NIET, Noida Institute of Engineering and Technology
 B.Tech CSE — 2025
 
@@ -317,5 +385,7 @@ B.Tech CSE — 2025
 **Built with 🛡️ for personal safety**
 
 *Shakti Shield — Stay Safe. Stay Connected.*
+
+🌐 **[Live App →](https://shakti-shield-sand.vercel.app)**
 
 </div>
